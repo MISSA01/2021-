@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pers.may.assist.mapper.CreditMapper">
+
+    <insert id="insertItem">
+        insert into credit (creditId,phoneNum,creditContent,creditDate,creditScore)VALUES(default,#{phoneNum},#{creditContent},#{creditDate},#{creditScore});
+    </insert>
+
+
+    <select id="selAllItemByPhoneNumber" resultType="Credit">
+        select * from credit where phoneNum = #{phoneNumber} order by creditDate desc;
+    </select>
+
+    <select id="selAllItemByPhoneNumberOfPage" resultType="Credit">
+        select * from credit where phoneNum = #{phoneNumber} order by creditDate desc limit ${(pageNum-1)*pageSize},#{pageSize};
+    </select>
+
+</mapper>

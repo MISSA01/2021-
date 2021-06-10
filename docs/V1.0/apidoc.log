@@ -1,0 +1,88 @@
+六月 10, 2021 6:57:30 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: find java src paths:  [E:\tools\IT_Tools\Kotlin\IdeaProjects\assist\src\main\java\]
+六月 10, 2021 6:57:30 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: project type not set, try to figure out...
+六月 10, 2021 6:57:30 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start find controllers in path : E:\tools\IT_Tools\Kotlin\IdeaProjects\assist\src\main\java\
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: find controller file : ChatController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: find controller file : ChatSocketController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: find controller file : EntranceController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: find controller file : OrdersController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: find controller file : OtherController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: find controller file : PageController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: find controller file : ProfileController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: find controller file : TaskController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to parse controller file : ChatController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: success to parse controller file : ChatController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to parse controller file : ChatSocketController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to parse controller file : EntranceController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: success to parse controller file : EntranceController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to parse controller file : OrdersController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: success to parse controller file : OrdersController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to parse controller file : OtherController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: success to parse controller file : OtherController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to parse controller file : PageController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: success to parse controller file : PageController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to parse controller file : ProfileController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: success to parse controller file : ProfileController.java
+六月 10, 2021 6:57:31 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to parse controller file : TaskController.java
+六月 10, 2021 6:57:32 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: success to parse controller file : TaskController.java
+六月 10, 2021 6:57:32 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: generate api docs start...
+六月 10, 2021 6:57:32 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to generate docs for controller file : E:\tools\IT_Tools\Kotlin\IdeaProjects\assist\src\main\java\pers\may\assist\controller\ChatController.java
+六月 10, 2021 6:57:32 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: success to generate docs for controller file : E:\tools\IT_Tools\Kotlin\IdeaProjects\assist\src\main\java\pers\may\assist\controller\ChatController.java
+六月 10, 2021 6:57:32 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to generate docs for controller file : E:\tools\IT_Tools\Kotlin\IdeaProjects\assist\src\main\java\pers\may\assist\controller\EntranceController.java
+六月 10, 2021 6:57:33 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: success to generate docs for controller file : E:\tools\IT_Tools\Kotlin\IdeaProjects\assist\src\main\java\pers\may\assist\controller\EntranceController.java
+六月 10, 2021 6:57:33 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to generate docs for controller file : E:\tools\IT_Tools\Kotlin\IdeaProjects\assist\src\main\java\pers\may\assist\controller\OrdersController.java
+六月 10, 2021 6:57:33 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: success to generate docs for controller file : E:\tools\IT_Tools\Kotlin\IdeaProjects\assist\src\main\java\pers\may\assist\controller\OrdersController.java
+六月 10, 2021 6:57:33 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to generate docs for controller file : E:\tools\IT_Tools\Kotlin\IdeaProjects\assist\src\main\java\pers\may\assist\controller\OtherController.java
+六月 10, 2021 6:57:33 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: success to generate docs for controller file : E:\tools\IT_Tools\Kotlin\IdeaProjects\assist\src\main\java\pers\may\assist\controller\OtherController.java
+六月 10, 2021 6:57:33 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to generate docs for controller file : E:\tools\IT_Tools\Kotlin\IdeaProjects\assist\src\main\java\pers\may\assist\controller\PageController.java
+六月 10, 2021 6:57:33 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: success to generate docs for controller file : E:\tools\IT_Tools\Kotlin\IdeaProjects\assist\src\main\java\pers\may\assist\controller\PageController.java
+六月 10, 2021 6:57:33 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to generate docs for controller file : E:\tools\IT_Tools\Kotlin\IdeaProjects\assist\src\main\java\pers\may\assist\controller\ProfileController.java
+六月 10, 2021 6:57:33 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: success to generate docs for controller file : E:\tools\IT_Tools\Kotlin\IdeaProjects\assist\src\main\java\pers\may\assist\controller\ProfileController.java
+六月 10, 2021 6:57:33 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to generate docs for controller file : E:\tools\IT_Tools\Kotlin\IdeaProjects\assist\src\main\java\pers\may\assist\controller\TaskController.java
+六月 10, 2021 6:57:33 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: success to generate docs for controller file : E:\tools\IT_Tools\Kotlin\IdeaProjects\assist\src\main\java\pers\may\assist\controller\TaskController.java
+六月 10, 2021 6:57:33 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: generate index start !!!
+六月 10, 2021 6:57:33 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: generate index done !!!
+六月 10, 2021 6:57:33 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: generate api docs done !!!

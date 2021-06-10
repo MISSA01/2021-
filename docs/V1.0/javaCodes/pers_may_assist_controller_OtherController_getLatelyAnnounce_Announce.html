@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Announce</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/google-code-prettify@1.0.5/bin/prettify.min.css">
+<link href="../style.css" rel="stylesheet" />
+</head>
+<body onload="PR.prettyPrint()">
+<pre class="prettyprint lang-java">
+public class Announce implements Serializable{
+
+    private int id; //
+    private String title; //
+    private String content; //
+    private String announceDate; //
+    private String managerId; //
+
+    public int getId(){
+        return id;
+    }
+
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public String getTitle(){
+        return title;
+    }
+
+    public void setTitle(String title){
+        this.title = title;
+    }
+
+    public String getContent(){
+        return content;
+    }
+
+    public void setContent(String content){
+        this.content = content;
+    }
+
+    public String getAnnounceDate(){
+        return announceDate;
+    }
+
+    public void setAnnounceDate(String announceDate){
+        this.announceDate = announceDate;
+    }
+
+    public String getManagerId(){
+        return managerId;
+    }
+
+    public void setManagerId(String managerId){
+        this.managerId = managerId;
+    }
+
+}
+</pre>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/google-code-prettify@1.0.5/bin/prettify.min.js"></script>
+</body>
+</html>
