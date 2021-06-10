@@ -1,0 +1,102 @@
+<!--index.wxml-->
+<view class="index-main">
+  <block wx:if="{{showCustomer}}">
+  
+    <view class="notice">
+      <swiper interval="7000" circular="{{true}}" bindchange="swiperChange" 
+        previous-margin="60rpx" next-margin="60rpx" autoplay="{{true}}">
+        <block wx:for="{{notice}}" wx:key="index">
+          <swiper-item class="notice-swiper-item">
+            <view class="notice-content {{currentSiwper == index ? 'active' : ''}}">
+              <view class="title">
+                {{item.title}}
+              </view>
+              <view class="content">
+                {{item.content}}
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="swiper-dots-view">
+        <view class="swiper-dot {{ currentSiwper == index? 'active':''}}" 
+          wx:for="{{notice}}" wx:key="index"></view>
+      </view>
+    </view>
+  </block>
+  <view class="task-count">
+    <view class="task-ongoing">
+      <view class="ongoing-outer">
+        <view class="ongoing-count" bindtap="navigateToMyTask" data-index="0">
+          <image class="ongoing-img" src="/image/index/ongoing.png"></image>
+          <view class="ongoing-text">
+            进行中<text class="quantity">{{ongoingTasks.length}}</text>
+          </view>
+        </view>
+        <block wx:if="{{ongoingTasks.length > 0}}">
+          <view class="small-cube"></view>
+          <view class="ongoing-swiper">
+            <swiper indicator-dots="{{true}}" indicator-color="rgba(191, 191, 191, .4)" 
+              indicator-active-color="rgba(215, 58, 60, .6)" autoplay="{{true}}" interval="3000" circular="{{true}}">
+              <block wx:for="{{ongoingTasks}}" wx:key="index">
+                <swiper-item class="ongoing-swiper-item" >
+                  <view class="ongoing-description" catchtap="navigateToTaskDetail"
+                    data-index="{{index}}">
+                    <image class="task-type-img" mode="heightFix"
+                    src="{{taskTypeImgs[item.task.taskType]}}"></image>
+                    <view class="text-description">
+                      <view class="task-title-taskobj-outer">
+                        <view class="task-title">{{item.task.taskTitle}}</view>
+                        <block wx:if="{{item.isMyTakeTask}}">
+                          <view class="task-obj">我接取的</view>
+                        </block>
+                        <block wx:else>
+                          <view class="task-obj">我发布的</view>
+                        </block>
+                      </view>
+                      <view class="task-pickup-time">
+                        接取: <text>{{item.receiveTime}}</text>
+                      </view>
+                    </view>
+                  </view>
+                </swiper-item>
+              </block>
+            </swiper>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="no-ongoing-task" catchtap="emptyFun">
+            <image class="empty-img" src="/image/index/empty.png" mode="heightFix">
+            </image>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="task-sketch">
+      <view class="task-sketch-item" bindtap="navigateToMyTask" data-index="1">
+        <image class="task-sketch-item-img" src="/image/index/undone.png"></image>
+        <view class="task-sketch-item-text">
+          已完成
+          <!-- <text class="quantity">{{completingTask}}</text> -->
+        </view>
+      </view>
+      <block  wx:if="{{showCustomer}}">  
+        <view class="task-sketch-item" bindtap="navigateToMyTask" data-index="2">
+          <image class="task-sketch-item-img" src="/image/index/waiting.png"></image>
+          <view class="task-sketch-item-text">
+            待接取<text class="quantity">{{waitingTask}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <block wx:if="{{isLoading}}">
+    <view class="loading">
+      <view class="loading-img-outer">
+        <image class="loading-img" src="https://www.vozl.cn/assist/img/others/amiya.gif" mode="heightFix"></image>
+        <view>加载中...</view>   
+      </view>  
+    </view> 
+  </block>
+</view>
+<!-- <view class="copyright">copyright</view> -->

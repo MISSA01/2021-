@@ -1,0 +1,13 @@
+<!--pages/chooseTaskType/chooseTaskType.wxml-->
+<view class="choose-main">
+  <view class="choose-type">
+    <view class="task-type" wx:for="{{types}}" wx:key="index" 
+      bindtap="openTypeForm" data-index="{{index}}">
+      <image class="type-img" src="{{item.iconUrl}}"></image>
+      <view class="type-text">{{item.title}}</view>
+    </view>
+  </view>
+  <view class="choose-exit" bindtap="goback">
+    <image class="close-img" src="/image/close.png"></image>
+  </view>
+</view>

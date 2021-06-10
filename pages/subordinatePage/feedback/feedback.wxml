@@ -1,0 +1,19 @@
+<!--pages/subordinatePage/feedback/feedback.wxml-->
+<view class="feedback-main">
+  <view class="feedback-title">
+    意见反馈
+    <view class="complement">
+      请详细描述您的意见或遇到的问题，我们将及时跟进解决:)
+    </view>
+  </view>
+  <view class="feedback-input">
+    <textarea auto-height="{{true}}" maxlength="150" class="input-area"
+      placeholder="请输入您的反馈意见" rows="5" bindinput="contentInput"></textarea>
+    <view class="word-count">
+      {{wordCount}}/150
+    </view>
+  </view>
+  <view class="confirm-button" bindtap="submitFeedback">
+    确认提交
+  </view>
+</view>

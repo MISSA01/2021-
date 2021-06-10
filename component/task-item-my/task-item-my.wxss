@@ -1,0 +1,80 @@
+/* component/task-item-my/task-item-my.wxss */
+.task-item-outer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.task-item{
+  width: 95%;
+  background-color: white;
+  border: white 1rpx solid;
+  border-radius: 12rpx;
+  box-shadow: 0 0 20rpx rgb(201, 201, 201);
+  margin: 15rpx 0;
+  display: flex;
+  padding: 15rpx 0;
+  box-sizing: border-box;
+}
+
+.task-item-img{
+  height: 120rpx;
+  width: 120rpx;
+  margin: 0 15rpx;
+}
+
+.task-item-content{
+  display: flex;
+  justify-content: space-between;
+  padding: 10rpx 0;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+.content-left{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.content-right{
+  height: 100%;
+}
+
+.complete-img{
+  height: 90rpx;
+  width: 90rpx;
+  margin-right: 15rpx;
+}
+
+.task-title{
+  font-size: 30rpx;
+  font-weight: bold;
+  max-width: 260rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-title-taskobj-outer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-bottom: 15rpx; */
+}
+
+.task-obj{
+  font-size: 24rpx;
+  color: #313131;
+}
+
+.content-footer{
+  font-size: 26rpx;
+  display: flex;
+}
+
+.footer-item{
+  margin-right: 10rpx;
+}

@@ -1,0 +1,275 @@
+/* pages/myProfile/myProfile.wxss */
+page{
+  height: 100%;
+}
+
+.myprofile-main{
+  height: 100%;
+  padding: 1rpx 30rpx;
+  background-color: rgb(250, 251, 252);
+}
+
+.user-info{
+  display: flex;
+  margin-top: 40rpx;
+}
+
+.avatar-border{
+  height: 120rpx;
+  width: 120rpx;
+  background-color: white;
+  border: rgb(233, 233, 233) 1rpx solid;
+  border-radius: 60rpx;
+  overflow: hidden;
+  margin-right: 30rpx;
+}
+
+.avatar-img{
+  height: 120rpx;
+  width: 120rpx;
+}
+
+.user-summary{
+  padding: 20rpx 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.user-name{
+  color: rgb(48, 48, 48);
+  font-size: 36rpx;
+}
+
+.register-login{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-detail{
+  font-size: 26rpx;
+  color: rgb(160, 160, 160);
+}
+
+.user-detail:active{
+  color: rgb(192, 192, 192);
+}
+
+.user-about{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25rpx;
+}
+
+.user-about-item{
+  width: 47%;
+  background-color: white;
+  border: white 1rpx solid;
+  border-radius: 14rpx;
+  padding: 15rpx 20rpx;
+  padding-bottom: 30rpx;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.about-item-outer{
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 25rpx;
+}
+
+.about-item-img{
+  height: 100%;
+  width: 60rpx;
+}
+
+.about-item-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.about-item-title{
+  font-size: 30rpx;
+  font-weight: bold;
+  color: rgb(82, 82, 82);
+}
+
+.my-task{
+  margin-top: 20rpx;
+  background-color: white;
+  border: white 1rpx solid;
+  border-radius: 14rpx;
+  padding: 15rpx 20rpx;
+}
+
+.my-task-content{
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  margin-bottom: 10rpx;
+  position: relative;
+}
+
+.my-task-img{
+  height: 80rpx;
+  width: 80rpx;
+  margin: 10rpx;
+}
+
+.my-task-text{
+  font-size: 30rpx;
+  font-weight: bold;
+  color: rgb(82, 82, 82);
+  line-height: 100rpx;
+  padding-left: 15rpx;
+  box-sizing: border-box;
+}
+
+.other-operate{
+  margin-top: 20rpx;
+  background-color: white;
+  border: white 1rpx solid;
+  border-radius: 14rpx;
+  padding: 15rpx 20rpx;
+}
+
+.other-operate-item{
+  display: flex;
+}
+
+.operate-img{
+  height: 80rpx;
+  width: 80rpx;
+  margin: 10rpx 20rpx;
+  margin-left: 0;
+}
+
+.operate-name{
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: rgb(82, 82, 82);
+}
+
+/* .operate-arrow{
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #858585;
+  line-height: 100rpx;
+  position: absolute;
+  right: 30rpx;
+}  */
+
+/* .background-img{
+  width: 100%;
+  z-index: 0;
+}
+
+.myprofile-main{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-color: white;
+}
+
+.info-main{
+  width: 100%;
+  position: absolute;
+  top: 240rpx;
+  background-color: white;
+  border-top: white 1rpx solid;
+  border-top-left-radius: 32rpx;
+  border-top-right-radius: 32rpx;
+  z-index: 1;
+}
+
+.user-info{
+  margin-bottom: 60rpx;
+}
+
+.avatar-border{
+  height: 140rpx;
+  width: 140rpx;
+  background-color: white;
+  position: absolute;
+  left: 40rpx;
+  top: -70rpx;
+  border: white 1rpx solid;
+  border-radius: 70rpx;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.avatar-img{
+  height: 140rpx;
+  width: 140rpx;
+}
+
+.user-name{
+  padding: 15rpx 0;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-left: 220rpx;
+}
+
+.my-task{
+  padding: 0 40rpx;
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  margin-bottom: 20rpx;
+}
+
+.detail-operate{
+  padding: 0 40rpx;
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
+  border-bottom: rgba(236, 236, 236, 0.507) 20rpx solid;
+}
+
+.operate-content{
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  margin-bottom: 10rpx;
+  position: relative;
+}
+
+.operate-img{
+  height: 80rpx;
+  width: 80rpx;
+  display: inline-block;
+  margin: 10rpx;
+}
+
+.operate-text{
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #2e2e2e;
+  line-height: 100rpx;
+  padding-left: 15rpx;
+  box-sizing: border-box;
+}
+
+.my-task-count{
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #727272;
+  line-height: 100rpx;
+  position: absolute;
+  right: 80rpx;
+}
+
+.operate-arrow{
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #858585;
+  line-height: 100rpx;
+  position: absolute;
+  right: 30rpx;
+} */

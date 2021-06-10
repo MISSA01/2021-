@@ -1,0 +1,56 @@
+<!--pages/subordinatePage/userDetail/userDetail.wxml-->
+<view class="user-detail-main">
+  <view class="avatar-info">
+    <view>头像</view>
+    <view class="avatar-outer">
+      <image class="avatar-img" src="{{userInfo.avatar}}" mode="heightFix"></image>
+    </view>
+  </view>
+  <view class="username info-item">
+    <view>用户名</view>
+    <view class="detail-info">{{userInfo.userName}}</view>
+  </view>
+  <picker mode="selector" value="{{userInfo.gender}}" range="{{genders}}"
+    bindchange="genderChange" data-attr="gender">
+    <view class="info-item">
+      <view>性别</view>
+      <view class="detail-info">{{genders[userInfo.gender]}}</view>
+      <view class="modify-arrow">></view>
+    </view>
+  </picker>
+  <view class="info-item {{modifyStuId ? 'stuIdModifying' : ''}}" bindtap="openChangeStuId">
+    <view>学号</view>
+    <block wx:if="{{!modifyStuId}}">
+      <view class="detail-info">{{userInfo.studentId}}</view>
+      <view class="modify-arrow">></view>
+    </block>
+    <view wx:else class="modify-outer" catchtap="emptyFunc">
+      <view class="input-outer">
+        <input type="number" class="modify-input" value="{{userInfo.studentId}}"
+          bindinput="inputChange"/>       
+      </view>
+      <image class="operate-img" src="/image/myProfile/cancel.png" mode="heightFix"
+        bindtap="closeChangeStuId"></image>
+      <image class="operate-img" src="/image/myProfile/confirm.png" mode="heightFix"
+        bindtap="confirmChange"></image>
+    </view>   
+  </view>
+  <picker mode="selector" value="{{userInfo.dormNum - 1}}" range="{{dormNums}}"
+    bindchange="dormNumChange" data-attr="dormNum">
+    <view class="info-item">
+      <view>宿舍楼</view>
+      <view class="detail-info">{{dormNums[userInfo.dormNum - 1]}}</view>
+      <view class="modify-arrow">></view>
+    </view>
+  </picker>
+  <block wx:if="{{showCustomer}}">  
+    <view class="info-item" bindtap="uploadQRCode">
+      <view>收款码</view>
+      <view class="detail-info">
+        <block wx:if="{{hasQRCode}}">已上传</block>
+        <block wx:else>未上传</block>
+      </view>
+      <view class="modify-arrow">></view>
+    </view>
+  </block>
+</view>

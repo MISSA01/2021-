@@ -1,0 +1,53 @@
+<!--pages/order/order.wxml-->
+<view class="order-main">
+  <scroll-view class="top-list-outer" scroll-x="{{true}}">
+    <view class="top-list">
+      <block wx:for="{{topListItems}}" wx:key="index">
+        <view class="top-list-item {{currentTop == index ? 'top-active' : ''}}"
+              bindtap="selectTop" data-index="{{index}}">{{item}}</view>
+      </block>
+      <!-- <view class="top-list-item {{labelIsActive ? 'top-active' : ''}} {{statePannel ? 'show-pannel' : ''}}" bindtap="togglePannel">任务状态</view> -->
+      <view class="top-list-item" bindtap="navigateToMyTask">
+        我的任务
+      </view>
+      <view style="padding:2rpx;color:white;">|</view>
+    </view>
+  </scroll-view>
+
+  <view class="left-list">
+    <block wx:for="{{leftListItems}}" wx:key="index">
+      <view class="left-list-item {{currentLeft == index ? 'left-active' : ''}}"
+        bindtap="selectLeft" data-index="{{index}}">
+        {{item}}
+      </view>
+    </block>
+  </view>
+  <view class="task-list-outer">
+    <scroll-view class="task-list" scroll-y="{{true}}" bindtap="touchScreen"
+      scroll-top="{{orderScrollTop}}" refresher-enabled refresher-threshold="40"
+      bindrefresherrefresh="refreshPulling" 
+      refresher-triggered="{{refresherTriggered}}">
+      <block wx:if="{{orderInfos.length == 0}}">
+        <view class="empty-view">
+          <image class="empty-img" src="/image/emptiness.png" mode="heightFix"></image>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="task-list-inner" bindtouchstart="touchStart" 
+          bindtouchend="touchEnd">
+          <block wx:for="{{orderInfos}}" wx:key="index">
+            <order-item orderInfo="{{item}}" index="{{index}}" hasNew="{{item.hasNew}}" binddelOrderItem="delOrderItem" ></order-item>
+          </block> 
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <block wx:if="{{isloading}}">
+    <view class="loading">
+      <view class="loading-img-outer">
+        <image class="loading-img" src="https://www.vozl.cn/assist/img/others/amiya.gif" mode="heightFix"></image>
+        <view>加载中...</view>
+      </view>
+    </view>
+  </block>
+</view>

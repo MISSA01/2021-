@@ -1,0 +1,39 @@
+<!--custom-tab-bar/index.wxml-->
+<view class="nav-tabs">
+  <block wx:if="{{showCustomer}}">
+  
+    <view class="tab-list {{currentTab == index ? 'active' : 'default' }}" 
+      wx:for="{{list}}" wx:key="index" data-current="{{index}}" 
+      data-url="{{item.pagePath}}" bindtap="switchNav">
+      <block wx:if="{{index != 2}}">
+        <text class="tab-text">{{item.text}}</text>
+        <view class="img-outer">
+          <image class="iconPath" data-current="{{index}}" src="{{currentTab == index ? item.selectedIconPath : item.iconPath }}"></image>
+          <block wx:if="{{index == 3 && showRedpoint}}">
+            <image class="red-point" src="/image/redpoint.png" mode="heightFix"></image>
+          </block>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="intermedia">
+          <view class="add-task-outer">
+            <image class="add-task"  data-current="{{index}}" 
+              src="/image/tabBar/add_task.png" bindtap="redirectChoose">       
+            </image>
+          </view>
+          <view>发布</view>
+        </view>
+      </block>  
+    </view>
+  </block>
+  <block wx:else>
+    <view class="tab-list {{currentTab == index ? 'active' : 'default' }}"
+      wx:for="{{anotherList}}" wx:key="index" data-current="{{index}}" 
+      data-url="{{item.pagePath}}" bindtap="test_switchNav">
+      <text class="tab-text">{{item.text}}</text>
+      <view class="img-outer">
+        <image class="iconPath" data-current="{{index}}" src="{{currentTab == index ? item.selectedIconPath : item.iconPath }}"></image>
+      </view>
+    </view>
+  </block>
+</view>

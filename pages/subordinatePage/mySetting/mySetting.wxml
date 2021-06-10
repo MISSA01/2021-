@@ -1,0 +1,10 @@
+<!--pages/subordinatePage/mySetting/mySetting.wxml-->
+<view class="my-setting-main">
+  <block wx:for="{{settings}}" wx:key="index">
+    <view class="setting-item" bindtap="navigateToSubSetting" data-index="{{index}}">
+      <view class="setting-text">{{item.settingName}}</view>
+      <image class="arrow-img" src="/image/subordinate/mySetting/rightArrow.png"
+        mode="heightFix"></image>
+    </view>
+  </block>
+</view>

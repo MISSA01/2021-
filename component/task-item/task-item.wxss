@@ -1,0 +1,145 @@
+/* component/task-item/task-item.wxss */
+.task-item{
+  margin: 15rpx 0;
+  width: 100%;
+  border: white 1rpx solid;
+  background-color: white;
+  border-radius: 12rpx;
+  box-shadow: 0 0 18rpx rgba(126, 126, 126, 0.7);
+  padding: 10rpx 15rpx;
+  padding-bottom: 5rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.task-item-head{
+  min-height: 50rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.author-info{
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+}
+
+.task-type-label{
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  color: rgb(94, 94, 94);
+  font-size: 26rpx;
+}
+
+.label-arrow{
+  height: 30rpx;
+  width: 30rpx;
+}
+
+.task-item-title{
+  font-size: 28rpx;
+  font-weight: bold;
+  color: rgb(65, 65, 65);
+  margin: 8rpx 0;
+  max-width: 250rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-sketch{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-type-img{
+  height: 80rpx;
+  width: 80rpx;
+  margin: 10rpx 15rpx;
+}
+
+.task-sketch-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 26rpx;
+  color: rgb(70, 70, 70);
+  margin: 0 20rpx;
+  height: 100%;
+}
+
+.attribution-outer{
+  display: flex;
+  align-items: center;
+  margin: 5rpx 0;
+}
+
+.attribution-img{
+  height: 30rpx;
+  width: 30rpx;
+}
+
+.attribution-text{
+  width: 75rpx;
+  text-align: center;
+}
+
+.label-stage{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.label-formation{
+  padding: 5rpx 15rpx;
+  border-radius: 7rpx;
+  font-size: 26rpx;
+  margin-bottom: 10rpx;
+  margin-right: 15rpx;
+}
+
+.task-destination{
+  padding: 5rpx 15rpx;
+  border-radius: 7rpx;
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  margin-bottom: 10rpx;
+  margin-right: 15rpx;
+}
+
+.task-destination-content{
+  max-width: 200rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.small-img{
+  height: 30rpx;
+  width: 30rpx;
+  margin-right: 10rpx;
+}
+
+.deadline{
+  padding: 8rpx 0 0;
+  border-top: rgb(233, 233, 233) 2rpx dashed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(102, 102, 102);
+  font-size: 24rpx;
+  margin-bottom: 10rpx;
+}
+
+.task-item-mask{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 20;
+}

@@ -1,0 +1,66 @@
+/* pages/subordinatePage/feedback/feedback.wxss */
+page{
+  height: 100%;
+}
+
+.feedback-main{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(250, 251, 252);
+}
+
+.feedback-title{
+  padding: 60rpx 30rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: rgb(37, 37, 37);
+}
+
+.complement{
+  margin-top: 15rpx;
+  font-size: 28rpx;
+  font-weight: normal;
+  color: rgb(100, 100, 100);
+}
+
+.feedback-input{
+  margin: 0 15rpx;
+  min-height: 100rpx;
+  padding: 10rpx 15rpx;
+  border: rgb(214, 214, 214) 1rpx solid;
+  border-radius: 20rpx;
+  box-shadow: 0 0 15rpx rgb(196, 196, 196);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.input-area{
+  font-size: 28rpx;
+  width: 100%;
+}
+
+.word-count{
+  font-size: 28rpx;
+  color: rgb(155, 155, 155);
+  text-align: right;
+}
+
+.confirm-button{
+  padding: 20rpx 120rpx;
+  margin: 40rpx auto;
+  background-color: rgb(174, 217, 224);
+  border: rgb(174, 217, 224) 1rpx solid;
+  color: rgb(250, 250, 250);
+  font-size: 28rpx;
+  /* font-weight: bold; */
+  border-radius: 40rpx;
+  box-shadow: 5rpx 5rpx 15rpx rgb(175, 175, 175);
+}
+
+.confirm-button:active{
+  background-color: rgb(195, 229, 235);
+  border: rgb(195, 229, 235) 1rpx solid;
+}

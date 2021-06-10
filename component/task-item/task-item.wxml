@@ -1,0 +1,57 @@
+<!--component/task-item/task-item.wxml-->
+<view class="task-item" bindtap="navigateTaskDetail">
+  <view class="task-item-head">
+    <view class="task-item-title">
+      {{taskInfo.taskTitle}}
+    </view>
+    <view class="task-type-label">
+      <image class="label-arrow" src="/image/task/right_arrow.png"  
+        mode="heightFix"></image>
+    </view>
+  </view>    
+  <block wx:if="{{showCustomer}}">
+    <view class="task-sketch">
+      <image class="task-type-img" src="{{'/image/' + taskImgUrl[taskInfo.taskType]}}" mode="heightFix"></image>
+      <view class="task-sketch-info">
+        <block wx:if="{{taskInfo.taskType != 3}}">
+          <view class="attribution-outer">
+            <image class="attribution-img" src="/image/task/item.png"
+              mode="heightFix"></image> 
+              <view class="attribution-text">{{taskInfo.itemCount}}</view> 件
+          </view>
+          <view class="attribution-outer">
+            <image class="attribution-img" src="/image/task/price.png"></image> 
+              <view class="attribution-text">{{taskInfo.taskReward}}</view> 元
+          </view>
+        </block>
+        <block wx:else>
+          <view class="attribution-outer">
+            <image class="attribution-img" src="/image/task/people.png"></image> 
+              <view class="attribution-text">{{taskInfo.taskPeoNum}}</view> 人
+          </view>
+        </block>
+      </view>
+    </view>
+    <view class="label-stage">
+      <view class="task-destination blue" wx:if="{{taskInfo.taskType != 3}}">
+        <image class="small-img" src="/image/task/destination.png" 
+          mode="heightFix"></image>
+        <view class="task-destination-content">     
+          {{taskInfo.taskDestination}}
+        </view>
+      </view>
+      <block wx:for="{{taskInfo.taskLabels}}" wx:key="*this">
+        <view class="label-formation {{item.colorClass}}">
+          {{item.labelText}}
+        </view>
+      </block>
+    </view>
+  </block>       
+  <view class="deadline">
+    <image class="small-img" src="/image/task/time.png"
+      mode="heightFix"></image>
+    <view>
+      {{taskInfo.taskOutTime}}
+    </view>              
+  </view>
+</view> 

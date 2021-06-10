@@ -1,0 +1,159 @@
+<view class="main">
+  <scroll-view class="show-area" style="height:{{showHeight}};" scroll-y="{{true}}"
+    scroll-into-view="{{toView}}" bindtap="closeKeyboard" scroll-top="{{scrollTop}}">
+    <view id="viewCommunicationBody">
+      <block wx:for="{{messageList}}" wx:key="index">
+        <view class="message clearfix" id="msg-{{index}}">
+          <block wx:if="{{item.fromPhoneNum == userInfo.phoneNum}}">
+            <view class="message-right">
+              <block wx:if="{{item.failSend}}">
+                <view class="warning-img-outer">
+                  <image class="warning-img" src="/image/chat/warning.png" 
+                    mode="heightFix" bindtap="resendMsg" data-index="{{index}}"
+                    data-item="{{item}}">
+                  </image>
+                </view>
+              </block>
+              <block wx:if="{{item.chatType == 1}}">
+                <view class="message-content message-content-right">
+                  <text>{{item.chatContent}}</text>
+                </view>
+              </block>
+              <block wx:else>
+                <view class="message-img-right-content">
+                  <image class="chat-img" src="{{item.chatContent}}" 
+                    bindload="adaptImageSize" data-index="{{index}}"
+                    bindtap="previewChatImage"
+                    style="height:{{item.height}};width:{{item.width}}"></image>
+                </view>
+              </block>
+              <view class="chat-avatar-outer">
+                <image class="chat-avatar chat-avatar-right" mode="heightFix"
+                src="{{userInfo.avatar}}"></image>
+              </view>
+            </view>
+          </block>
+          <block wx:else>
+            <view class="message-left">
+              <view class="chat-avatar-outer">
+                <image class="chat-avatar chat-avatar-left" mode="heightFix"
+                src="{{toUser.avatar}}"></image>
+              </view>
+              <block wx:if="{{item.chatType == 1}}">
+                <view class="message-content message-content-left">
+                  <text>{{item.chatContent}}</text>
+                </view>
+              </block>
+              <block wx:else>
+                <view class="message-img-left-content">
+                  <image class="chat-img" src="{{item.chatContent}}" 
+                    bindload="adaptImageSize" data-index="{{index}}"
+                    bindtap="previewChatImage"
+                    style="height:{{item.height}};width:{{item.width}}"></image>
+                </view>
+              </block>
+            </view>
+          </block>
+        </view>
+      </block>
+    </view>
+  </scroll-view>  
+  <view wx:if="{{isCompleted}}" class="chat-footer-completed">
+    任务已完成，不能继续发消息
+  </view> 
+  <view wx:else class="chat-footer" style="bottom:{{bottom}};">
+    <view class="chat-input">
+      <input type="text" confirm-hold="{{true}}" confirm-type="send" bindinput="bindKeyInput" cursor-spacing="15" value="{{inputValue}}"
+      confirm-hold="{{true}}" bindconfirm="sendMessage" bindfocus="focus"
+      bindblur="blur" adjust-position="{{false}}" hold-keyboard="{{true}}"
+      focus="{{showKeyboard}}" maxlength="30"/>
+    </view>
+    <view class="chat-plus" wx:if="{{showPlus}}">
+      <block wx:if="{{showAddition}}">
+        <view class="addition-view clearfix">
+          <view class="addition-icon-outer" bindtap="chooseImage">
+            <image class="addition-icon" src="/image/chat/album.png" mode="heightFix" ></image>
+            <view>图片</view>
+          </view>
+          <view class="addition-icon-outer" bindtap="sendQRCode">
+            <image class="addition-icon" src="/image/chat/receive_code.png" 
+              mode="heightFix"></image>
+            <view>收款</view>
+          </view>
+          <view class="addition-icon-outer" bindtap="getOrderDetail">
+            <image class="addition-icon" src="/image/chat/task_detail.png" mode="heightFix"></image>
+            <view>详情</view>
+          </view>
+        </view>
+      </block>
+      <!-- <block wx:else> -->
+        <image class="chat-plus-image clearfix" src="/image/chat/addition.png" mode="heightFix" animation="{{animation}}" bindtap="taggleAddition"></image>
+      <!-- </block> -->
+    </view>
+    <view class="chat-send-outer" wx:else>
+      <view id="send-msg" class="chat-send" bindtap="sendMessage">
+        <text>发送</text>
+      </view>
+    </view>
+  </view>
+  <view class="mask" wx:if="{{isShowMask}}" bindtap="closeMask">
+    <view class="order-info-main" catchtap="emptyFun">
+      <view class="order-title-outer">
+        <view class="order-title">
+          订单信息 :
+        </view>
+        <view class="close-button" bindtap="closeMask">
+          X
+        </view>
+      </view>
+      <view class="attr-outer">
+        <view class="attr-text">标题 ：</view>
+        <view class="attr-content text-bold">
+          {{orderInfo.task.taskTitle}}
+        </view>
+      </view>
+      <view class="attr-outer">
+        <view class="attr-text">类型 ：</view>
+        <view class="attr-content">
+          {{taskTypes[orderInfo.task.taskType]}}
+        </view>
+      </view>
+      <block wx:if="{{orderInfo.task.taskType != 3}}">
+        <view class="attr-outer">
+          <view class="attr-text">奖励 ：</view>
+          <view class="attr-content">
+            {{orderInfo.task.taskReward}}元
+          </view>
+        </view>
+        <view class="attr-outer">
+          <view class="attr-text">数量 ：</view>
+          <view class="attr-content">
+            {{orderInfo.task.itemCount}}个
+          </view>
+        </view>
+        <view class="attr-outer">
+          <view class="attr-text">取物地：</view>
+          <view class="attr-content">
+            {{orderInfo.task.taskGetPlace}}
+          </view>
+        </view>
+        <view class="attr-outer">
+          <view class="attr-text">目的地：</view>
+          <view class="attr-content">
+            {{orderInfo.task.taskDestination}}
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{!isMyTask}}"> 
+        <view class="order-footer">
+          <view class="giveup-button footer-button" catchtap="giveupOrder">
+            放弃
+          </view>
+          <view class="complete-button footer-button" catchtap="completeOrder">
+            完成
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

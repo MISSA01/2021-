@@ -1,0 +1,266 @@
+/**index.wxss**/
+page{
+  /* background-color: #ffffff; */
+  height: 100%;
+}
+
+.index-main{
+  height: 100%;
+  background-color: rgb(250, 251, 252);
+}
+
+.notice{
+  margin: 0 auto;
+  height: 360rpx;
+  width: 100%;
+  position: relative;
+}
+
+.notice swiper{
+  height: 100%;
+  align-items: center;
+}
+
+.notice-swiper-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow:hidden;
+}
+
+.notice-content.active{
+  transform: scale(1, 1);
+}
+
+.notice-content{
+  transition: transform 500ms;
+  transform: scale(0.8, 0.8);
+  width: 92%;
+  height: 300rpx;
+  box-shadow: 0 10rpx 30rpx -10rpx rgba(0, 0, 0,.4);
+  border: rgb(241, 250, 255) 1rpx solid;
+  border-radius: 20rpx;
+  background-color: rgb(241, 250, 255);
+  margin: 0 auto;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.notice-content .title{
+  width: 100%;
+  text-align: center;
+  font-size: 36rpx;
+}
+
+.swiper-dots-view {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 18rpx;
+}
+
+.swiper-dot {
+  width: 6px;
+  height: 6px;
+  margin: 0 3px;
+  border-radius: 3px;
+  background-color: rgba(117, 117, 117, 0.418);
+}
+
+.swiper-dot.active {
+  width: 10px;
+  background-color: rgb(221, 65, 3);
+}
+
+.task-count-heading{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 34rpx;
+  padding: 5rpx 0;
+}
+
+.task-count{
+  height: 320rpx;
+  width: 100%;
+  display: flex
+}
+
+.quantity::before{
+  content: " ";
+}
+
+.task-ongoing{
+  flex: 2;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.ongoing-outer{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  background-color: white;
+  border: white 1rpx solid;
+  border-radius: 20rpx;
+  padding: 10rpx;
+  box-sizing: border-box;
+  box-shadow: 5rpx 5rpx 15rpx -5rpx rgba(88, 88, 88, 0.4);
+}
+
+.no-ongoing-task{
+  flex: 1;
+  width: 100%;
+  background-color: #f5f5f7;
+  border: rgb(246, 247, 248) 1rpx solid;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-img{
+  height: 80%;
+  opacity: .4;
+}
+
+.ongoing-count{
+  flex: 1;
+  width: 100%;
+  padding: 0 10rpx;
+  display: flex;
+  align-items:center;
+  box-sizing: border-box;
+}
+
+.ongoing-img{
+  height: 90rpx;
+  width: 90rpx;
+}
+
+.ongoing-text{
+  color: rgb(129, 129, 129);
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-left: 10rpx;
+}
+
+.small-cube{
+  height: 25rpx;
+  width: 25rpx;
+  border: rgb(246, 247, 248) 1rpx solid;
+  border-radius: 5rpx;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 130rpx;
+  left: 40rpx;
+  background-color: rgb(245, 245, 247);
+  z-index: 1;
+}
+
+.ongoing-swiper{
+  flex: 1;
+  background-color: rgb(245, 245, 247);
+  border: rgb(246, 247, 248) 1rpx solid;
+  border-radius: 10rpx;
+  z-index: 5;
+}
+
+.ongoing-swiper swiper{
+  height: 100%;
+  width: 100%;
+  padding: 10rpx;
+  box-sizing: border-box;
+}
+
+.wx-swiper-dots{
+  position: relative;
+  height: 0rpx;
+  margin-bottom: -2rpx;
+}
+
+.ongoing-description{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.task-type-img{
+  height: 80rpx;
+  width: 80rpx;
+  background-color: rgb(240, 248, 255);
+}
+
+.text-description{
+  margin-left: 15rpx;
+}
+
+.task-title-taskobj-outer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15rpx;
+}
+
+.task-title{
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #313131;
+  max-width: 200rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-obj{
+  font-size: 24rpx;
+  color: #313131;
+}
+
+.task-pickup-time{
+  font-size: 24rpx;
+  color: #575757;
+}
+
+.task-sketch{
+  flex: 1;
+  padding: 20rpx 0;
+  padding-right: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.task-sketch-item{
+  display: flex;
+  align-items: center;
+  padding: 18rpx 10rpx;
+  box-sizing: border-box;
+  background-color: white;
+  border: white 1rpx solid;
+  border-radius: 20rpx;
+  box-shadow: 5rpx 5rpx 15rpx -5rpx rgba(0, 0, 0,.4);
+}
+
+.task-sketch-item-img{
+  height: 85rpx;
+  width: 85rpx;
+  margin-right: 10rpx;
+}
+
+.task-sketch-item-text{
+  font-size: 26rpx;
+  font-weight: bold;
+  color: rgb(129, 129, 129);
+}
+
+.clear-storage{
+  margin-top: 40rpx;
+}
