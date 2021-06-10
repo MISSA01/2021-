@@ -1,0 +1,81 @@
+<!--pages/myProfile/myProfile.wxml-->
+<view class="myprofile-main">
+  <view class="user-info">
+    <view class="avatar-border">
+      <image class="avatar-img" src="{{userInfo.avatar}}" mode="heightFix"></image>
+    </view>
+    <block wx:if="{{userInfo}}">
+      <view class="user-summary">
+        <view class="user-name">
+          {{userInfo.userName}}
+        </view>
+        <view class="user-detail" bindtap="navigateToPage" data-index="{{0}}">
+          编辑个人信息
+        </view>  
+      </view>
+    </block>
+    <block wx:else>
+      <view class="register-login" bindtap="registerOrLogin">
+        登录/注册
+      </view>    
+    </block>
+  </view>
+  <block wx:if="{{showCustomer}}"> 
+    <view class="user-about">
+      <view class="user-about-item" bindtap="navigateToPage" data-index="{{1}}">
+        <view class="about-item-outer">
+          <image class="about-item-img" src="/image/myProfile/reputation2.png"
+            mode="heightFix"></image>
+        </view>
+        <view class="about-item-info">
+          <view class="about-item-title">
+            信誉积分
+          </view>
+        </view>
+      </view>
+      <view class="user-about-item" bindtap="tickJournal">
+        <view class="about-item-outer">
+          <image class="about-item-img" src="/image/myProfile/journal.png"
+            mode="heightFix"></image>
+        </view>
+        <view class="about-item-info">
+          <view class="about-item-title">
+            日志
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="my-task">
+      <view class="my-task-content" bindtap="navigateToPage" data-index="{{2}}">
+        <image class="my-task-img" src="/image/myProfile/my_task.png" 
+          mode="heightFix"></image>
+        <view class="my-task-text">我的任务</view>
+      </view>
+    </view>
+  </block>
+  <view class="other-operate">
+    <view class="other-operate-item" bindtap="navigateToPage" data-index="{{4}}">
+      <image class="operate-img" src="/image/myProfile/about_us.png"
+        mode="heightFix"></image>
+      <view class="operate-name">
+        新手引导
+      </view>
+    </view>
+    <view class="other-operate-item" bindtap="navigateToPage" data-index="{{3}}">
+      <image class="operate-img" src="/image/myProfile/setting2.png"
+        mode="heightFix"></image>
+      <view class="operate-name">
+        设置
+      </view>
+    </view>
+  </view>
+  <block wx:if="{{isTicking}}">
+    <view class="loading">
+      <view class="loading-img-outer">
+        <image class="loading-img" src="https://www.vozl.cn/assist/img/others/kaltsit.gif" mode="heightFix"></image>
+        <view>别点了，别点了...</view>   
+      </view>  
+    </view>
+  </block>
+</view>
+<!-- <view class="copyright">copyright</view> -->

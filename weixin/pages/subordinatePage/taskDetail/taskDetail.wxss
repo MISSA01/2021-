@@ -1,0 +1,231 @@
+/* pages/subordinatePage/taskDetail/taskDetail.wxss */
+page{
+  height: 100%;
+}
+
+.task-detail-main{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: scroll;
+  /* background-color: lemonchiffon; */
+}
+
+.task-title{
+  padding: 25rpx 30rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: rgb(36, 36, 36);
+}
+
+.task-announce-time{
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  color: #9d9ea0;
+  margin-bottom: 15rpx;
+}
+
+.summary-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30rpx;
+  padding-bottom: 15rpx;
+  border-bottom: rgb(245, 246, 249) 1rpx solid;
+}
+
+.user-sketch-info{
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar{
+  height: 65rpx;
+  width: 65rpx;
+  margin-right: 15rpx;
+  border: rgb(233, 233, 233) 1rpx solid;
+  border-radius: 65rpx;
+  overflow: hidden;
+}
+
+.chat-enter-img{
+  height: 60rpx;
+  width: 60rpx;
+  margin: 0 15rpx;
+}
+
+.task-state{
+  padding: 8rpx 15rpx;
+  border-radius: 7rpx;
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  margin-right: 15rpx;
+}
+
+.task-ongoing{
+  background-color: #dafcc5;
+  border: #dafcc5 1rpx solid;
+  color: #75ec3a;
+}
+
+.task-waiting-pickup{
+  background-color: #d0efff;
+  border: #d0efff 1rpx solid;
+  color: #43c7ff;
+}
+
+.task-done{
+  background-color: #e9e9e9;
+  border: #e9e9e9 1rpx solid;
+  color: #999999;
+}
+
+.detail-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  border-bottom: rgb(243, 244, 248) 20rpx solid;
+}
+
+.info-outer{
+  width: 100%;
+  padding: 15rpx 5rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+}
+
+.info-attr{
+  color: rgb(185, 185, 185);
+}
+
+.info-value{
+  color: rgb(100, 100, 100);
+}
+
+.blue-stripe{
+  height: 25rpx;
+  width: 6rpx;
+  background-color: #78b9e9;
+  margin-right: 15rpx;
+}
+
+.task-des{
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  border-bottom: rgb(243, 244, 248) 20rpx solid;
+}
+
+.des-attr-title{
+  padding: 25rpx 0;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: rgb(36, 36, 36);
+  display: flex;
+  align-items: center;
+}
+
+.task-des-content{
+  padding-bottom: 25rpx;
+  font-size: 28rpx;
+  color: rgb(100, 100, 100);
+}
+
+.item-area{
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  border-bottom: rgb(243, 244, 248) 20rpx solid;
+}
+
+.item-stage{
+  display: flex;
+  flex-direction: column;
+  color: #222222;
+  font-size: 28rpx;
+}
+
+.task-item{
+  padding: 0 15rpx;
+  padding-bottom: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.label-area{
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.label-stage{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.label-formation{
+  padding: 8rpx 18rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+  margin-right: 15rpx;
+}
+
+.button-outer{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 25rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.cc-button{
+  width: 40%;
+  padding: 20rpx 0;
+  text-align: center;
+  border-radius: 40rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.complete-button{
+  background-color: #0c84ff;
+  color: white;
+}
+
+.complete-button:active{
+  background-color: #0c78e7;
+}
+
+.cancel-button{
+  background-color: #f0f0f0;
+  color: #606060;
+}
+
+.cancel-button:active{
+  background-color: #e3e3e3;
+}
+
+.pickup-button{
+  width: 70%;
+  padding: 20rpx 0;
+  text-align: center;
+  background-color: #e4edf4;
+  border: #e4edf4 1rpx solid;
+  border-radius: 40rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #0099ff;
+}
+
+.pickup-button:active{
+  background-color: #c3e2f6;
+  border-color: #c3e2f6;
+}

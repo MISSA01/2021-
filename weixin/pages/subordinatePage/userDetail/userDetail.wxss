@@ -1,0 +1,93 @@
+/* pages/subordinatePage/userDetail/userDetail.wxss */
+page{
+  height: 100%;
+}
+
+.user-detail-main{
+  height: 100%;
+  width: 100%;
+  background-color: rgb(245, 245, 245);
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item{
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  position: relative;
+  padding: 20rpx 25rpx;
+  padding-right: 50rpx;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 255);
+}
+
+.detail-info{
+  color: rgb(146, 146, 146);
+  font-size: 28rpx;
+}
+
+.avatar-info{
+  width: 100%;
+  display: flex;
+  padding: 20rpx 25rpx;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 255);
+}
+
+.avatar-outer{
+  height: 120rpx;
+  width: 120rpx;
+  border: rgba(233, 233, 233) 1rpx solid;
+  border-radius: 70rpx;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+
+.avatar-img{
+  height: 120rpx;
+  width: 120rpx;
+}
+
+.modify-outer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-outer{
+  height: 50rpx;
+  width: 240rpx;
+  border: rgb(180, 180, 180) 1rpx solid;
+  border-radius: 25rpx;
+  padding: 0 18rpx;
+  display: flex;
+  align-items: center;
+}
+
+.stuIdModifying{
+  padding-right: 15rpx;
+}
+
+.modify-input{
+  font-size: 28rpx;
+}
+
+.operate-img{
+  height: 50rpx;
+  width: 50rpx;
+  margin: 0 5rpx;
+}
+
+.modify-arrow{
+  position: absolute;
+  right: 15rpx;
+  color: rgb(146, 146, 146);
+  font-size: bold;
+}
+
+

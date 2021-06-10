@@ -1,0 +1,297 @@
+<!--pages/taskForm/taskForm.wxml-->
+<view class="taskform-main">
+  <view class="task-necessary">
+    <view class="task-title">
+      <block wx:if="{{showCustomer}}">   
+        <input type="text" class="task-title-input" placeholder="任务标题（15字以内，必填）" placeholder-class="title-holder" value="{{task.taskTitle}}" 
+        bindinput="titleInput" maxlength="15" bindblur="titleBlur"/>
+      </block>
+      <block wx:else>    
+        <input type="text" class="task-title-input" placeholder="目标标题（15字以内，必填）" placeholder-class="title-holder" value="{{task.taskTitle}}" 
+        bindinput="titleInput" maxlength="15" bindblur="titleBlur"/>
+      </block>
+    </view>
+    <view class="task-content">
+      <textarea auto-height="{{true}}" class="task-content-input" maxlength="60"
+      placeholder="补充描述（60字以内，可空）" placeholder-class="content-holder"
+      rows="5" bindinput="contentInput" value="{{task.taskComplement}}"></textarea>
+    </view>
+    <view class="task-label">
+      <view class="show-label">
+        <view class="complement" wx:if="{{task.taskLabels.length == 0}}">
+          快来添加标签吧（最多添加3个）
+        </view>
+        <block wx:for="{{task.taskLabels}}" wx:key="index">         
+          <view class="label {{item.colorClass}}">
+            <view class="label-text label-text-right">
+              {{item.labelText}}
+            </view>            
+            <image class="label-del" src="/image/subordinate/taskForm/del.png"
+              mode="heightFix" bindtap="delLabel" data-index="{{index}}"></image>
+          </view>
+        </block>
+      </view>
+      <view class="label-list-outer">
+        <scroll-view class="label-list" scroll-x="{{true}}">
+          <view class="commend-label">
+            <view class="example-text">示例：</view>
+            <block wx:for="{{commendLabel}}" wx:key="index">         
+              <view class="selectable-label {{item.colorClass}}" bindtap="addLabel" 
+                data-index="{{index}}" data-flag="{{true}}">
+                <view class="label-text">{{item.labelText}}</view>            
+              </view>
+            </block>
+            <view class="stuffing">md</view>
+          </view>
+        </scroll-view>
+        <view class="add-label">
+          <image class="add-label-img" src="/image/subordinate/taskForm/add_label.png" mode="heightFix" bindtap="openAddLabel"></image>
+        </view>
+      </view>      
+    </view>
+  </view>
+  <block wx:if="{{showCustomer}}">
+    <view class="task-detail">
+      <picker mode="selector" value="{{task.taskType}}" range="{{taskTypes}}"
+        bindchange="taskTypeChange" class="detail-item-outer">
+        <view class="task-type detail-item">
+          <view class="attr-text">任务类型</view>
+          <view class="text-with-arrow">
+            {{taskTypes[task.taskType]}}
+            <image class="sub-arrow" src="/image/subordinate/taskForm/sub_arrow.png"
+              ></image>
+          </view>
+        </view>
+      </picker>
+      <view class="object-count detail-item-outer">
+        <view class="detail-item">
+          <block wx:if="{{task.taskType != 3}}">
+            <view class="attr-text">物品数量</view>
+            <view class="data-input-outer">
+              <input type="text" class="data-input" value="{{task.itemCount}}"
+              bindinput="countInput" bindfocus="countFocus" bindblur="countBlur"
+              data-attr="itemCount"></input>份
+            </view>
+          </block>
+          <block wx:else>
+            <view class="attr-text">人数</view>
+            <view class="data-input-outer">
+              <input type="text" class="data-input" value="{{task.taskPeoNum}}"
+              bindinput="countInput" bindfocus="countFocus" data-attr="taskPeoNum"></input>人
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class="item-list" wx:if="{{task.taskType != 3}}">
+        <block wx:for="{{task.taskItems}}" wx:key="index">
+          <view class="obj-item">
+            <image class="del-item-img" src="/image/subordinate/taskForm/del_item.png"
+              mode="heightFix" bindtap="delObjItem" data-index="{{index}}"></image>
+            <input cursor-spacing="{{100}}" class="item-content" placeholder="物品描述" 
+              bindinput="inputItemContent" placeholder-class="item-content-holder" data-index="{{index}}" value="{{item.itemdes}}" maxlength="15"></input>
+            <block wx:if="{{task.taskType == 2}}">
+              <input cursor-spacing="{{100}}" type="digit" placeholder="预估重量" class="weight-input"
+              placeholder-class="item-content-holder" bindinput="weightInput"
+              data-index="{{index}}" value="{{item.estimateWeight}}"></input>kg
+            </block>
+          </view>
+        </block>
+        <view class="add-item-button item-with-border" bindtap="addObjItem">
+          <view class="obj-item">
+            <image class="add-item-img" src="/image/subordinate/taskForm/add_item.png"
+            mode="heightFix"></image>
+            <view class="add-item-content">添加描述</view>
+            <view class="notice-content">
+              <image class="notice-img" src="/image/subordinate/taskForm/notice.png"
+                mode="heightFix"></image>
+              物品描述在任务发布后将会转为标签
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class="task-complement">
+    <block wx:if="{{showCustomer}}">   
+      <block wx:if="{{task.taskType != 3}}">
+        <view class="get-place detail-item-outer">
+          <view class="detail-item">
+            <view class="attr-text">取物地</view>
+            <input cursor-spacing="{{100}}" class="place-input" maxlength="15" 
+              bindinput="getPlaceInput" placeholder="(必填)"
+              bindblur="getPlaceBlur" value="{{task.taskGetPlace}}"></input>
+          </view>
+        </view>
+        <view class="destination detail-item-outer">
+          <view class="detail-item">
+            <view class="attr-text">目的地</view>
+            <input cursor-spacing="{{100}}" class="place-input" maxlength="15" 
+              bindinput="destinationInput" placeholder="(必填)"
+              bindblur="destinationBlur" value="{{task.taskDestination}}"></input>
+          </view>
+        </view>
+        <view class="task-reward detail-item-outer">
+          <view class="detail-item">
+            <view class="attr-text">任务金额</view>
+            <view class="data-input-outer">
+              <image class="attr-reward-img" bindtap="recommendPrice" mode="heightFix"
+              src="/image/subordinate/taskForm/recommend.png"></image>
+              <view class="recommend-price-area">{{taskRecommendReward}}</view>
+              <image class="right-arrow" bindtap="concentRecommend" mode="heightFix"
+              src="/image/subordinate/taskForm/right_arrow.png"></image>
+              <input cursor-spacing="{{100}}" type="digit" class="data-input" value="{{task.taskReward}}" bindinput="rewardInput" bindblur="priceBlur" 
+              bindfocus="rewardFocus">
+              </input>元
+            </view>
+          </view>
+        </view>
+      </block>
+      <view class="pickup-deadline detail-item-outer conceal-border">
+        <block wx:if="{{isModify}}">
+          <view class="detail-item">
+            <view class="attr-text">接取时限</view>
+            <view class="">{{task.taskOutTime}}</view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="detail-item">
+            <view class="attr-text">接取时限</view>
+            <view class="datetime-selector">
+              <picker mode="date" value="{{currentDate}}" 
+                bindchange="taskDateChange" end="2030-12-31"
+                class="sub-selector">
+                <view class="text-with-arrow">
+                  {{currentDate}}
+                  <image class="sub-arrow" 
+                    src="/image/subordinate/taskForm/sub_arrow.png"></image>
+                </view>            
+              </picker>
+              <picker mode="time" value="{{currentDateTime}}" 
+                bindchange="taskTimeChange" class="sub-selector">
+                <view class="text-with-arrow">
+                  {{currentTime}}
+                  <image class="sub-arrow" src="/image/subordinate/taskForm/sub_arrow.png"
+                  ></image>
+                </view>
+              </picker>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class="hint-text-outer">
+        <image class="notice-img" src="/image/subordinate/taskForm/notice.png"
+          mode="heightFix"></image>
+        接取时限不能在当前时间之前，默认为当前时间30分钟后
+      </view>
+    </block>
+    <block wx:else>
+      <view class="pickup-deadline detail-item-outer conceal-border">
+        <block wx:if="{{isModify}}">
+          <view class="detail-item">
+            <view class="attr-text">完成时限</view>
+            <view class="">{{task.taskOutTime}}</view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="detail-item">
+            <view class="attr-text">完成时限</view>
+            <view class="datetime-selector">
+              <picker mode="date" value="{{currentDate}}" 
+                bindchange="taskDateChange" start="{{startDate}}" end="2030-12-31"
+                class="sub-selector">
+                <view class="text-with-arrow">
+                  {{currentDate}}
+                  <image class="sub-arrow" 
+                    src="/image/subordinate/taskForm/sub_arrow.png"></image>
+                </view>            
+              </picker>
+              <picker mode="time" value="{{currentDateTime}}" 
+                bindchange="taskTimeChange" start="{{startTime}}" class="sub-selector">
+                <view class="text-with-arrow">
+                  {{currentTime}}
+                  <image class="sub-arrow" src="/image/subordinate/taskForm/sub_arrow.png"
+                  ></image>
+                </view>
+              </picker>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <view style="height:150rpx"></view>
+  </view>
+  <view class="button-outer">
+    <block wx:if="{{isModify}}">
+      <view class="cancel-modify cc-button" bindtap="cancelModify">
+        取消修改
+      </view>
+      <view class="confirm-modify cc-button" bindtap="confirmModify">
+        确认修改
+      </view>
+    </block>
+    <block wx:else>
+      <block wx:if="{{showCustomer}}"> 
+        <view class="announce-button" bindtap="announceTask">
+          发布任务
+        </view>
+      </block>
+      <block wx:else>
+        <view class="announce-button" bindtap="announceTask">
+          确认目标
+        </view>
+      </block>
+    </block>
+  </view>
+  <block wx:if="{{showCustomer}}"> 
+    <view class="preview-outer" bindtap="openTaskPreview">
+      <image class="preview-img" src="/image/subordinate/taskForm/preview.png" 
+        mode="heightFix"></image>
+      <view class="task-preview-text">预览</view>
+    </view>
+  </block>
+  <view wx:if="{{showTaskPreview}}" class="task-preview-outer">
+    <task-item taskInfo="{{task}}" isPreview="{{true}}" style="width:100%;">
+      </task-item>
+    <view class="task-preview-footer" bindtap="closeTaskPreview">   
+      <image class="out-of-preview" 
+        src="/image/subordinate/taskForm/out_preview.png" 
+        mode="heightFix"></image>
+    </view>
+  </view>
+  <view class="mask" wx:if="{{showAddLabel}}" bindtap="closeAddLabel">
+    <view class="add-label-main" catchtap="emptyFunc">
+      <view class="title">添加标签</view>
+      <view class="label-content">
+        <input cursor-spacing="{{100}}" class="label-content-input" type="text" placeholder="请输入标签内容"
+        maxlength="8" placeholder-class="lci-holder"  value="{{currentLabelContent}}"
+        bindinput="inputLabelContent"></input>
+        <view class="content-count">{{clcLength}}/8</view>
+      </view>
+      <view class="choose-color-outer">
+        <scroll-view class="choose-color" scroll-x="{{true}}">
+          <view class="choose-block-container">
+            <block wx:for="{{blendence}}" wx:key="index">
+              <view class="color-block {{index==currentColor ? 'color-active' : ''}}  {{blendence[index]}}" bindtap="chooseColor" data-index="{{index}}">
+              </view>
+            </block>
+            <view style="padding:5rpx;color:white;">|</view>
+          </view>
+        </scroll-view>
+      </view>
+      <view class="label-preview-stage">
+        <view class="preview-complement" wx:if="{{clcLength == 0}}">
+          标签预览
+        </view>
+        <view class="{{clcLength == 0 ? '' : 'preview-label'}} {{blendence[currentColor]}}">
+          <view class="label-text" style="color: {{blendence[currentColor].color}};">
+            {{currentLabelContent}}
+          </view>          
+        </view>
+      </view>
+      <view class="buttom-button">
+        <view class="button" bindtap="closeAddLabel">取消</view>
+        <view class="button confirm" bindtap="addLabel" data-isComment="{{false}}">确认</view>
+      </view>
+    </view>
+  </view>
+</view>

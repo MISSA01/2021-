@@ -1,0 +1,10 @@
+<!--pages/subordinatePage/contactUs/contactUs.wxml-->
+<view class="contact-us-main">
+  <view class="qr-code-outer" bindlongpress="saveQRImage" data-imgurl="{{qrCodeUrl}}">
+    <image class="qr-code-img" src="{{qrCodeUrl}}"
+      mode="heightFix"></image>
+      <view class="des-text">
+        长按保存二维码，扫码加入交流群
+      </view>
+  </view>
+</view>

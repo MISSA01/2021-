@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/myProfile/myProfile",
+    "pages/task/task",
+    "pages/order/order",
+    "pages/subordinatePage/chat/chat",
+    "pages/subordinatePage/greenhandGuide/greenhandGuide",
+    "pages/subordinatePage/register/register",
+    "pages/subordinatePage/contactUs/contactUs",
+    "pages/subordinatePage/taskForm/taskForm",
+    "pages/subordinatePage/userDetail/userDetail",
+    "pages/subordinatePage/myTask/myTask",
+    "pages/subordinatePage/taskDetail/taskDetail",
+    "pages/subordinatePage/feedback/feedback",
+    "pages/subordinatePage/mySetting/mySetting",
+    "pages/subordinatePage/reputation/reputation",
+    "pages/subordinatePage/chooseTaskType/chooseTaskType"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index"
+      },
+      {
+        "pagePath": "pages/task/task"
+      },
+      {
+        "pagePath": "pages/order/order"
+      },
+      {
+        "pagePath": "pages/myProfile/myProfile"
+      }
+    ],
+    "usingComponent": {}
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

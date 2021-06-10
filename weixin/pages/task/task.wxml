@@ -1,0 +1,67 @@
+<!--pages/task/task.wxml-->
+<view class="task-main">
+  <block wx:if="{{showCustomer}}">
+  
+    <view class="task-top-list">
+      <block wx:for="{{taskRank}}" wx:key="index">
+        <view class="task-top-list-item {{currentRank == index ? 'top-active' : ''}}"
+          bindtap="changeRank" data-index="{{index}}">{{item}}</view>
+      </block>
+      <view class="task-type-selector task-top-list-item {{labelIsActive ? 'top-active' : ''}} {{typePannel ? 'show-pannel' : ''}}" bindtap="togglePannel">种类
+      <image class="type-selector-img" mode="heightFix"
+        src="{{labelIsActive ? '/image/task/filter_active.png' : '/image/task/filter.png' }}"></image>
+      </view>
+    </view>
+  </block>
+  <scroll-view class="task-scroll-view" scroll-y="{{true}}" bindtap="touchScreen"
+    scroll-top="{{taskScrollTop}}" refresher-enabled refresher-threshold="70"
+    bindrefresherrefresh="refreshPulling" 
+    refresher-triggered="{{refresherTriggered}}">
+    <block wx:if="{{taskLeftList.length == 0 && taskRightList.length == 0}}">
+      <view class="empty-view">
+        <image class="empty-img" src="/image/emptiness.png" mode="heightFix"></image>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="task-showarea" bindtouchstart="touchStart" bindtouchend="touchEnd">
+        <view class="task-subarea">
+          <block wx:for="{{taskLeftList}}" wx:key="taskId">
+            <task-item taskInfo="{{item}}" myIndex="{{index}}" myDirection="left"
+             bind:myPosition="getCurrentTask"></task-item>       
+          </block>
+        </view>
+        <view class="task-subarea">
+          <block wx:for="{{taskRightList}}" wx:key="taskId">
+            <task-item taskInfo="{{item}}" myIndex="{{index}}" myDirection="right"
+            bind:myPosition="getCurrentTask"></task-item>       
+          </block>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+  <view class="mask" wx:if="{{typePannel}}" bindtap="closePannel">
+    <view class="task-type-outer" catchtap="emptyFunc">
+      <view class="task-type">
+        <block wx:for="{{choosedTaskTypes}}" wx:key="index">
+          <view class="task-type-item" bindtap="selectTaskType" data-index="{{index}}">
+            <image class="tick" src="/image/order/tick.png" mode="widthFix"
+              wx:if="{{item.isSelected}}"></image>
+            {{taskTypes[item.type]}}
+          </view>
+        </block>
+      </view>
+      <view class="buttons">
+        <view class="reset-button" bindtap="resetType">重置</view>
+        <view class="confirm-button" bindtap="confirmTypes">确定</view>
+      </view>
+    </view>
+  </view>
+  <block wx:if="{{isloading}}">
+    <view class="loading">
+      <view class="loading-img-outer">
+        <image class="loading-img" src="https://www.vozl.cn/assist/img/others/amiya.gif" mode="heightFix"></image>
+        <view>加载中...</view>   
+      </view>  
+    </view> 
+  </block>
+</view>

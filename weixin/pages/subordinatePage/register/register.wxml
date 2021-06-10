@@ -1,0 +1,66 @@
+<!--pages/subordinatePage/register/register.wxml-->
+<view class="register-main">
+  <block wx:if="{{isRegister}}">
+    <view class="register-img-outer">
+      <image class="register-img" src="/image/subordinate/register/cloud.png"
+        mode="heightFix"></image>
+      <view class="register-text">注册</view>
+    </view>
+    <view class="attr-input-outer">
+      <image class="attr-img" src="/image/subordinate/register/phoneNum.png" 
+        mode="heightFix"></image>
+      <view class="attr-text">手机号</view>
+      <input class="attr-input" type="text" placeholder="(必填)"
+        maxlength="11" bindinput="phoneNumInput" bindblur="phoneNumBlur"
+        value="{{userInfo.phoneNum}}"></input>
+    </view>
+    <view class="attr-input-outer">
+      <image class="attr-img" src="/image/subordinate/register/student_id.png" 
+        mode="heightFix"></image>
+        <view class="attr-text">学号</view>
+      <input class="attr-input" type="text" placeholder="(必填)"
+        maxlength="14" bindinput="studentIdInput" bindblur="studentIdBlur"
+        value="{{userInfo.studentId}}"></input>
+    </view>
+    <view class="attr-input-outer">
+      <image class="attr-img" src="/image/subordinate/register/gender.png" 
+        mode="heightFix"></image>
+      <view class="attr-text">性别</view>
+      <picker mode="selector" value="{{userInfo.gender}}" range="{{genders}}"
+        bindchange="genderChange" class="selector-outer">
+        <view class="selector-inner">
+          {{genders[userInfo.gender]}}
+        </view>
+      </picker>
+    </view>
+    <view class="attr-input-outer">
+      <image class="attr-img" src="/image/subordinate/register/dormitory.png" 
+        mode="heightFix"></image>
+      <view class="attr-text">宿舍号</view>
+      <picker mode="selector" value="{{userInfo.dormNum - 1}}" range="{{dormNums}}"
+        bindchange="dormNumChange" class="selector-outer">
+        <view class="selector-inner">
+          <view class="detail-info">{{dormNums[userInfo.dormNum - 1]}}</view>
+        </view>
+      </picker>
+    </view>
+    <view class="register-notice"></view>
+    <button id='authorize-button' bindtap="onRegitser">
+      注册
+    </button>
+    <button class="cancel-button" bindtap="cancelRegiste">
+     取消
+    </button>
+  </block>
+  <block wx:else>
+    <view class="login-img-outer">
+      <image class="login-img" src="/image/subordinate/register/wechat.png" mode="heightFix"></image>
+      <button id='login-button' bindtap="onLogin">
+        微信一键登录
+      </button>
+      <button class="cancel-button" bindtap="cancelRegiste">
+        取消
+      </button>
+    </view>   
+  </block>
+</view>

@@ -1,0 +1,19 @@
+<!--pages/subordinatePage/greenhandGuide/greenhandGuide.wxml-->
+<view class="guide-main">
+  <view class="swiper-view">
+    <swiper class="swiper-box" bindchange="swiperChange">
+      <block wx:for="{{swiperList}}" wx:key="*this">
+        <swiper-item style="text-align: center;">
+          <view class="swiper-item-view">
+            <image mode="heightFix" class="swiper-image {{swiperCurrent == index ? 'active' : ''}}" src="{{item}}" />
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="swiper-dots-view">
+      <block wx:for="{{swiperDots}}" wx:key="index">
+        <view class="swiper-dot {{swiperCurrent == index ? 'active' : ''}}"></view>
+      </block>
+    </view>
+  </view>
+</view>

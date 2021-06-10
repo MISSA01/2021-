@@ -1,0 +1,48 @@
+<!--component/task-item-my/task-item-my.wxml-->
+<view class="task-item-outer">
+  <view class="task-item" bindtap="navigateTaskDetail">
+    <image class="task-item-img"  mode="heightFix"
+    src="{{taskTypeImg[taskInfo.taskType]}}">
+    </image>
+    <view class="task-item-content">
+      <view class="content-left">
+        <view class="task-title-taskobj-outer">
+          <view class="task-title">
+            {{taskInfo.taskTitle}}
+          </view>
+          <block wx:if="{{orderInfo.isMyTakeTask}}">
+            <view class="task-obj">我接取的</view>
+          </block>
+          <block wx:else>
+            <view class="task-obj">我发布的</view>
+          </block>
+        </view>
+        <view class="content-footer">
+          <block wx:if="{{currentActive != 2}}">
+            <block wx:if="{{!orderInfo.finishTime || orderInfo.finishTime.length == 0}}">           
+              <view class="pickup-time">
+                接取时间：{{orderInfo.receiveTime}}
+              </view>
+            </block>
+            <block wx:else>
+              <view class="pickup-time">
+                完成时间：{{orderInfo.finishTime}}
+              </view>
+            </block>
+          </block>
+          <block wx:else>
+            <view class="pickup-time">
+              截止时间：{{taskInfo.taskOutTime}}
+            </view>
+          </block>
+        </view>
+      </view>
+      <block wx:if="{{currentActive != 2 && orderInfo}}">
+        <view class="content-right">
+          <image class="complete-img"  mode="heigthFix"
+          src="{{taskStateImg[((orderInfo.finishTime.length == 0 || !orderInfo.finishTime) ? 0 : 1)]}}"></image>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

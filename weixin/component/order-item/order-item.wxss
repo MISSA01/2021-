@@ -1,0 +1,186 @@
+/* component/order-item.wxss */
+.flex-view{
+  display: flex;
+}
+
+.task-item{
+  position: relative;
+  padding: 10rpx;
+  box-sizing: border-box;
+  width: 96%;
+  margin: 25rpx auto;
+  margin-top: 15rpx;
+  flex-direction: row;
+  background-color: rgb(250, 250, 250);
+  border: rgb(250, 250, 250) 1rpx solid;
+  border-radius: 12rpx;
+  box-shadow: 0px 0px 15rpx rgba(78, 78, 78, 0.5);
+}
+
+.des-head{
+  display: flex;
+  justify-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 5rpx;
+  box-sizing: border-box;
+}
+
+.task-des-title-outer{
+  color: rgb(92, 92, 92);
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.task-des-title-content{
+  max-width: 280rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-image{
+  height: 46rpx;
+  width: 46rpx;
+  margin-right: 15rpx;
+}
+
+.arrow{
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #afafaf;
+  margin-left: 15rpx;
+}
+
+.task-item-state{
+  text-align: center;
+  font-size: 26rpx;
+  /* color: #818181; */
+  padding: 4rpx 10rpx;
+  box-sizing: border-box;
+  border-radius: 8rpx;
+}
+
+.task-item-delete{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rpx;
+  margin-left: 10rpx;
+  border: rgb(233, 233, 233) 1rpx solid;
+  background-color: rgb(233, 233, 233);
+  border-radius: 30rpx;
+}
+
+.delete-image{
+  height: 30rpx;
+  width: 30rpx;
+}
+
+.task-des{
+  height: 120rpx;
+  padding: 5rpx 10rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sketch-info{
+  box-sizing: border-box;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+}
+
+.avatar-img-outer{
+  height: 90rpx;
+  width: 90rpx;
+  border: rgb(231, 231, 231) 1rpx solid;
+  border-radius: 45rpx;
+  margin: 0 20rpx;
+  overflow: hidden;
+}
+
+.avatar-img{
+  height: 100%;
+  width: 100%;
+}
+
+.des-attr{
+  height: 40rpx;
+  width: 40rpx;
+  margin-right: 8rpx;
+}
+
+.des-attr-text{
+  width: 90rpx;
+  color: #818181;
+  font-size: 26rpx;
+}
+
+.task-des-title{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.task-des-type{
+  display: flex;
+  align-items: center;
+}
+
+.contact-each{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+  position: relative;
+}
+
+.red-point{
+  height: 24rpx;
+  width: 24rpx;
+  position: absolute;
+  right: 10rpx;
+  top: -5rpx;
+}
+
+.contact-each-img{
+  height: 70rpx;
+  width: 70rpx;
+}
+
+.contact-each-text{
+  font-size: 24rpx;
+}
+
+.order-item-footer{
+  display: flex;
+  align-items: center;
+  height: 50rpx;
+}
+
+.pickup-time{
+  flex: 3;
+  color: #978e78;
+  font-size: 26rpx;
+  padding-left: 15rpx;
+  box-sizing: border-box;
+}
+
+.price{
+  flex: 1;
+  height: 100%;
+  background-color: #f8ebe9;
+  border: #f8ebe9 1rpx solid;
+  border-radius: 15rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d15567;
+  font-size: 28rpx;
+}

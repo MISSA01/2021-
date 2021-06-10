@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "task-item":"/component/task-item/task-item"
+  },
+  "navigationBarTitleText": "任务发布"
+}

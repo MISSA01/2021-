@@ -1,0 +1,182 @@
+<!--pages/subordinatePage/taskDetail/taskDetail.wxml-->
+<view class="task-detail-main">
+  <view class="task-title">
+    {{taskInfo.taskTitle}}
+  </view>
+  <block wx:if="{{showCustomer}}">
+    <view class="task-announce-time">发布于{{taskInfo.taskInTime}}</view>
+    <view class="summary-info">
+      <view class="user-sketch-info" catchtap="gotoChat">
+        <image class="user-avatar" src="{{publishUser.avatar}}" mode="heightFix"></image>
+        <view class="user-name">{{publishUser.userName}}</view>
+        <block wx:if="{{orderInfo.phoneNum.length > 0}}">
+          <image class="chat-enter-img" src="/image/subordinate/taskDetail/chat.png"
+            mode="heightFix"></image>
+        </block>
+      </view>
+      <block wx:if="{{taskInfo.taskState == 0}}">
+        <view class="task-state orange">
+          待接取
+        </view>
+      </block>
+      <block wx:else>
+        <block wx:if="{{orderInfo.finishTime.length == 0 || !orderInfo.finishTime}}">
+          <view class="task-state green">
+            进行中
+          </view>
+        </block>
+        <block wx:else>
+          <view class="task-state grey">
+            已完成
+          </view>
+        </block>
+      </block>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="task-announce-time">确认于{{taskInfo.taskInTime}}</view>
+    <view class="summary-info">
+      <view class="user-sketch-info">
+        <image class="user-avatar" src="{{publishUser.avatar}}" mode="heightFix"></image>
+        <view class="user-name">{{publishUser.userName}}</view>
+      </view>
+      <view class="task-state green">
+        进行中
+      </view>
+    </view>
+  </block>
+  
+  <view class="detail-info">
+    <block wx:if="{{showCustomer}}">
+      <view class="info-outer">
+        <view class="info-attr">任务类型：</view>
+        <view class="info-value">{{taskTypes[taskInfo.taskType]}}</view>
+      </view>
+      <block wx:if="{{taskInfo.taskType != 3}}">
+        <view class="info-outer">
+          <view class="info-attr">悬赏金额：</view>
+          <view class="info-value">{{taskInfo.taskReward}}元</view>
+        </view>
+        <view class="info-outer">
+          <view class="info-attr">物品数量：</view>
+          <view class="info-value">{{taskInfo.itemCount}}件</view>
+        </view>
+        <view class="info-outer">
+          <view class="info-attr">取物地：</view>
+          <view class="info-value">{{taskInfo.taskGetPlace}}</view>
+        </view>
+        <view class="info-outer">
+          <view class="info-attr">目的地：</view>
+          <view class="info-value">{{taskInfo.taskDestination}}</view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="info-outer">
+          <view class="info-attr">人数：</view>
+          <view class="info-value">
+            {{taskInfo.taskPeoNum - taskInfo.taskAvaPeoNum}} / {{taskInfo.taskPeoNum}}人
+          </view>
+        </view>
+      </block>
+      <view class="info-outer">
+        <view class="info-attr">接取时限：</view>
+        <view class="info-value">{{taskInfo.taskOutTime}}</view>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="info-outer">
+        <view class="info-attr">完成时限：</view>
+        <view class="info-value">{{taskInfo.taskOutTime}}</view>
+      </view>
+    </block>
+    <view class="info-outer" 
+      wx:if="{{!(orderInfo.finishTime.length == 0 || !orderInfo.finishTime)}}">
+      <view class="info-attr">完成时间：</view>
+      <view class="info-value">{{orderInfo.finishTime}}</view>
+    </view>
+  </view>
+  <view class="task-des">
+    <view class="des-attr-title">
+      <view class="blue-stripe"></view>
+      任务描述
+    </view>
+    <view class="task-des-content">
+      {{taskInfo.taskComplement}}
+    </view>
+  </view>
+  <block wx:if="{{showCustomer}}">
+    <view class="item-area" wx:if="{{taskInfo.taskType != 3}}">
+      <view class="des-attr-title">
+        <view class="blue-stripe"></view>
+        物品描述
+      </view>
+      <view class="item-stage">
+        <block wx:for="{{taskInfo.taskItems}}" wx:key="index">
+          <view class="task-item">
+            <view class="item-name">{{item.itemdes}}</view>
+            <view class="item-count">X 1</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </block>
+  <view class="label-area">
+    <view class="des-attr-title">
+      <view class="blue-stripe"></view>
+      标签
+    </view>
+    <view class="label-stage">
+      <block wx:for="{{taskInfo.taskLabels}}" wx:key="index">
+        <view class="label-formation {{item.colorClass}}">
+          {{item.labelText}}
+        </view>
+      </block>
+    </view>
+  </view> 
+  <view style="height:120rpx"></view>
+  <view class="button-outer">
+    <!-- 接收任务者 -->
+    <block wx:if="{{currentUser.phoneNum != taskInfo.phoneNum}}">
+      <block wx:if="{{canPickup}}">
+        <view class="pickup-button" bindtap="pickupTask">
+          接取任务
+        </view>
+      </block>
+      <block wx:else>
+        <block wx:if="{{fromPage != 'task'}}">
+          <block wx:if="{{orderInfo.finishTime.length == 0 || !orderInfo.finishTime}}">
+            <view class="cancel-button cc-button" bindtap="giveupTask">
+              放弃任务
+            </view>
+            <view class="complete-button cc-button" bindtap="completeTask">
+              完成任务
+            </view>
+          </block>
+        </block>
+      </block>
+    </block>
+    <!-- 发布任务者 -->
+    <block wx:else>
+      <block wx:if="{{showCustomer}}">     
+        <block wx:if="{{taskInfo.taskState == 0}}">
+          <view class="cancel-button cc-button" bindtap="cancelTask">
+            取消任务
+          </view>
+          <view class="complete-button cc-button" bindtap="modifyTask">
+            修改任务
+          </view>
+        </block>
+      </block>
+      <block wx:else>
+        <block wx:if="{{taskInfo.taskState == 0}}">
+          <view class="cancel-button cc-button" bindtap="modifyTask">
+            修改目标
+          </view>
+          <view class="complete-button cc-button" bindtap="finishTask">
+            完成目标
+          </view>
+        </block>
+      </block>
+    </block>
+  </view>
+</view>

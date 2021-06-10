@@ -1,0 +1,37 @@
+<!--pages/subordinatePage/reputation/reputation.wxml-->
+<view class="reputation-main">
+  <view class="medal-outer">
+    <image class="medal-img" src="/image/myProfile/medal.png" mode="heightFix"></image>
+    <view class="reputation-num">{{userInfo.userScore}}</view>
+  </view>
+  <view class="reputation-des">
+    <view class="des-buttons">
+      <view class="des-button left-botton {{isShowRecord ? '' : 'button-active'}}" 
+        bindtap="showSummary">积分概况</view>
+      <view class="des-button right-button  {{!isShowRecord ? '' : 'button-active'}}"
+        bindtap="showRecord">变动记录</view>
+    </view>
+    <view class="des-content">
+      <view class="current-summary" wx:if="{{!isShowRecord}}">
+        <view class="summary-title">当前信誉积分概述</view>
+        <view class="summary-content">
+          你的表现很好，请继续保持！
+        </view>
+      </view>
+      <view class="reputation-record" wx:else>
+        <view class="table-row">
+          <view class="record-time table-title">时间</view>
+          <view class="record-variance table-title">积分变动</view>
+          <view class="record-reason table-title">原因</view>
+        </view>
+        <block wx:for="{{records}}" wx:key="index">
+          <view class="table-row">
+            <view class="record-time table-item">{{item.creditDate}}</view>
+            <view class="record-variance table-item">{{item.creditScore}}</view>
+            <view class="record-reason table-item">{{item.creditContent}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

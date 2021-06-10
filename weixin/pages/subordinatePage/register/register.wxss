@@ -1,0 +1,143 @@
+/* pages/subordinatePage/register/register.wxss */
+page{
+  height: 100%;
+}
+
+.register-main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  background-color: rgb(250, 251, 252);
+  padding-top: 30rpx;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.register-img-outer{
+  display: flex;
+  align-items: center;
+}
+
+.register-img{
+  height: 100rpx;
+  width: 100rpx;
+  margin: 60rpx 30rpx;
+}
+
+.register-text{
+  letter-spacing: 20rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: rgb(129, 129, 129);
+}
+
+.login-img-outer{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-img{
+  height: 200rpx;
+  width: 200rpx;
+  margin-bottom: 20rpx;
+  margin-top: 120rpx;
+}
+
+#authorize-button[disabled]{
+  background-color: #ccc;
+  box-shadow: 0 10rpx 20rpx #cccccc81;
+}
+
+#authorize-button{
+  padding: 15rpx 0;
+  width: 50%;
+  text-align: center;
+  white-space:nowrap;
+  border-radius: 12rpx;
+  background-color: #34be3b;
+  color: white;
+  box-shadow: 0 10rpx 20rpx #65db9881;
+  margin-top: 30rpx;
+}
+
+#authorize-button:active{
+  background-color: #73d678;
+}
+
+.cancel-button{
+  padding: 15rpx 0;
+  width: 50%;
+  text-align: center;
+  white-space:nowrap;
+  border-radius: 12rpx;
+  background-color: #34be3b;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+  background-color: rgb(250, 251, 252);
+}
+
+#login-button{
+  padding: 15rpx 0;
+  width: 60%;
+  text-align: center;
+  white-space:nowrap;
+  border-radius: 12rpx;
+  background-color: #34be3b;
+  color: white;
+  box-shadow: 0 10rpx 20rpx #65db9881;
+  margin-top: 30rpx;
+}
+
+#login-button:active{
+  background-color: #73d678;
+}
+
+.attr-input-outer{
+  display: flex;
+  align-items: center;
+  width: 70%;
+  padding: 20rpx 35rpx;
+  background-color: white;
+  border: white 1rpx solid;
+  border-radius: 60rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 10rpx 20rpx rgb(192, 192, 192);
+}
+
+.attr-img{
+  height: 45rpx;
+  width: 45rpx;
+  margin-right: 10rpx;
+}
+
+.attr-text{
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color: #727272;
+}
+
+.attr-input{
+  font-size: 30rpx;
+  padding: 5rpx 0;
+  flex: 1;
+  text-align: right;
+  padding-right: 20rpx;
+  box-sizing: border-box;
+}
+
+.selector-outer{
+  flex: 1;
+  font-size: 30rpx;
+}
+
+.selector-inner{
+  padding: 5rpx 0;
+  padding-right: 20rpx;
+  box-sizing: border-box;
+  text-align: right;
+}

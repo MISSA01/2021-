@@ -1,0 +1,27 @@
+/* pages/subordinatePage/mySetting/mySetting.wxss */
+page{
+  height: 100%;
+}
+
+.my-setting-main{
+  height: 100%;
+  background-color: rgb(245, 245, 247);
+}
+
+.setting-item{
+  background-color: white;
+  padding: 30rpx;
+  border-top: #f3f4f8 20rpx solid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.setting-text{
+  color: rgb(24, 24, 24);
+}
+
+.arrow-img{
+  height: 30rpx;
+  width: 30rpx;
+}
