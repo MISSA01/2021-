@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Credit</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/google-code-prettify@1.0.5/bin/prettify.min.css">
+<link href="../style.css" rel="stylesheet" />
+</head>
+<body onload="PR.prettyPrint()">
+<pre class="prettyprint lang-java">
+public class Credit implements Serializable{
+
+    private int creditId; //扣分记录ID
+    private String phoneNum; //扣分用户的手机号
+    private String creditContent; //扣分行为描述
+    private String creditDate; //扣分时间
+    private int creditScore; //扣分分值
+
+    public int getCreditId(){
+        return creditId;
+    }
+
+    public void setCreditId(int creditId){
+        this.creditId = creditId;
+    }
+
+    public String getPhoneNum(){
+        return phoneNum;
+    }
+
+    public void setPhoneNum(String phoneNum){
+        this.phoneNum = phoneNum;
+    }
+
+    public String getCreditContent(){
+        return creditContent;
+    }
+
+    public void setCreditContent(String creditContent){
+        this.creditContent = creditContent;
+    }
+
+    public String getCreditDate(){
+        return creditDate;
+    }
+
+    public void setCreditDate(String creditDate){
+        this.creditDate = creditDate;
+    }
+
+    public int getCreditScore(){
+        return creditScore;
+    }
+
+    public void setCreditScore(int creditScore){
+        this.creditScore = creditScore;
+    }
+
+}
+</pre>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/google-code-prettify@1.0.5/bin/prettify.min.js"></script>
+</body>
+</html>

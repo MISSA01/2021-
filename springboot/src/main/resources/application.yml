@@ -1,0 +1,51 @@
+spring:
+  datasource:
+#    username: root
+#    password: 123
+    username: master
+    password: Goq0eZXbIRaUeVk5
+    url: jdbc:mysql://47.93.13.72:3306/dorm704?serverTimezone=GMT%2B8&characterEncoding=utf-8
+#    url: jdbc:mysql://localhost/dorm704?serverTimezone=GMT%2B8&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  thymeleaf:
+    cache: false
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
+
+#  web:
+#    resources:
+#      static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:/tools/IT_Tools/Kotlin/IdeaProjects/img
+#  mvc:
+#    static-path-pattern: /img/**
+
+
+server:
+  servlet:
+    context-path: /assist
+
+  tomcat:
+    max-http-form-post-size: -1
+  max-http-header-size: 200KB
+
+  ssl:
+    key-store: 5315791_vozl.cn.pfx
+    key-store-password: 7j1DkULv
+    enabled: true
+
+  port: 443
+
+
+
+mybatis:
+  type-aliases-package: pers.may.assist.pojo
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 设置打印sql语句
+
+http:
+  port: 8080
+
+

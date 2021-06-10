@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pers.may.assist.mapper.UserMapper">
+
+    <select id="selAllUser" resultType="User">
+        select * from user;
+    </select>
+
+    <select id="selSingleUserByPhoneNum" resultType="User">
+        select * from user where phoneNum = #{phoneNum};
+    </select>
+
+    <select id="selSingleUserByOpenId" resultType="User">
+          select * from user where user.phoneNum = (select weixin_user.phoneNum from weixin_user where openId = #{openId});
+    </select>
+
+    <insert id="insertNewUserByUser" >
+        insert into user (phoneNum,userName,studentId,dormNum,gender,userScore,avatar)VALUES(#{phoneNum},#{userName},#{studentId},#{dormNum},#{gender},default,#{avatar} );
+    </insert>
+
+
+    <insert id="insertNewUserOpenId" >
+        insert into weixin_user (openId,phoneNum)VALUES(#{openId},#{phoneNum});
+    </insert>
+
+    <update id="updUserByUser" >
+		UPDATE user SET userName = #{userName},studentId = #{studentId},dormNum = #{dormNum},gender = #{gender} where phoneNum = #{phoneNum};
+    </update>
+
+    <select id="selOpenId" resultType="String">
+        select openId from weixin_user where openId = #{openId};
+    </select>
+
+    <insert id="insertNewLoginLog" >
+        insert into log_login (loginId,phoneNum,loginDate)VALUES(default ,#{phoneNum},#{loginDate});
+    </insert>
+
+    <select id="selOpenIdByPhoneNum" resultType="String">
+        select openId from weixin_user where phoneNum = #{phoneNum};
+    </select>
+
+    <update id="updRewardCodeByPhoneNum" >
+		UPDATE user SET rewardCode = #{rewardCode} where phoneNum = #{phoneNum};
+    </update>
+
+    <select id="selRewardCodeByPhoneNum" resultType="String">
+        select rewardCode from user where phoneNum = #{phoneNum};
+    </select>
+
+</mapper>

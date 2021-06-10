@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Orders</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/google-code-prettify@1.0.5/bin/prettify.min.css">
+<link href="../style.css" rel="stylesheet" />
+</head>
+<body onload="PR.prettyPrint()">
+<pre class="prettyprint">
+<xmp>
+#import <Foundation/Foundation>;
+
+@interface Orders : NSObject
+
+//自增主键
+@property (nonatomic, strong) NSInteger orderId;
+//对应任务ID
+@property (nonatomic, strong) NSInteger taskId;
+//接任务的人的电话
+@property (nonatomic, assign) NSString phoneNum;
+//接受时间
+@property (nonatomic, assign) NSString receiveTime;
+//完成时间
+@property (nonatomic, assign) NSString finishTime;
+//本订单对应的任务的具体属性
+@property (nonatomic, strong) Task task;
+
+
+@end
+</xmp>
+</pre>
+
+<pre class="prettyprint">
+<xmp>
+#import <Foundation/Foundation>;
+
+@interface Task : NSObject
+
+//自增主键
+@property (nonatomic, strong) NSInteger taskId;
+//任务发起者电话
+@property (nonatomic, assign) NSString phoneNum;
+//任务标题
+@property (nonatomic, assign) NSString taskTitle;
+//任务类型
+@property (nonatomic, strong) NSInteger taskType;
+//任务奖励
+@property (nonatomic, strong) CGFloat taskReward;
+//任务内容
+@property (nonatomic, assign) NSString taskContent;
+//任务发布时间
+@property (nonatomic, assign) NSString taskInTime;
+//任务截止时间
+@property (nonatomic, assign) NSString taskOutTime;
+//任务状态
+@property (nonatomic, strong) NSInteger taskState;
+//任务人数
+@property (nonatomic, strong) NSInteger taskPeoNum;
+//任务人数
+@property (nonatomic, strong) NSInteger taskAvaPeoNum;
+
+
+@end
+</xmp>
+</pre>
+
+
+<script src="https://cdn.jsdelivr.net/npm/google-code-prettify@1.0.5/bin/prettify.min.js"></script>
+</body>
+</html>
